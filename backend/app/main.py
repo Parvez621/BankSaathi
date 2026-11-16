@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.trustedhost import TrustedHostMiddleware
 
-from app.api import health, workflows
+from app.api import health, workflows, speech
 from app.core.config import get_settings
 
 settings = get_settings()
@@ -46,3 +46,4 @@ async def security_headers(request, call_next):
 
 app.include_router(health.router, prefix="/api")
 app.include_router(workflows.router, prefix="/api")
+app.include_router(speech.router, prefix="/api")

@@ -12,6 +12,8 @@ class Settings(BaseSettings):
     allowed_hosts: list[str] = ["localhost", "127.0.0.1", "testserver"]
     cors_origins: list[str] = []
 
+    speech_api_key: str | None = None
+
     model_config = SettingsConfigDict(
         env_file=".env",
         extra="ignore",
